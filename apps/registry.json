@@ -1064,5 +1064,23 @@
         "path": "",
         "deterministicPassword": true,
         "torOnly": false
+    },
+    {
+        "id": "plausible",
+        "category": "Development",
+        "name": "Plausible",
+        "version": "v1.4.4",
+        "tagline": "Simple, open-source and privacy-friendly web analytics",
+        "description": "",
+        "developer": "milkyklim",
+        "website": "https://plausible.io",
+        "dependencies": [],
+        "repo": "https://github.com/plausible/analytics",
+        "support": "https://github.com/plausible/hosting/issues",
+        "port": 8084,
+        "gallery": [],
+        "path": "",
+        "deterministicPassword": true,
+        "torOnly": false
     }
 ]

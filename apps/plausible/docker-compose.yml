@@ -7,7 +7,8 @@ services:
 
   plausible_db:
     image: postgres:12
-    restart: always
+    user: "1000:1000"
+    restart: on-failure
     volumes:
       - db-data:/var/lib/postgresql/data
     environment:
@@ -15,7 +16,8 @@ services:
 
   plausible_events_db:
     image: yandex/clickhouse-server:21.3.2.5
-    restart: always
+    user: "1000:1000"
+    restart: on-failure
     volumes:
       - event-data:/var/lib/clickhouse
       - ./clickhouse/clickhouse-config.xml:/etc/clickhouse-server/config.d/logging.xml:ro
@@ -27,7 +29,8 @@ services:
 
   plausible:
     image: plausible/analytics:latest
-    restart: always
+    user: "1000:1000"
+    restart: on-failure
     command: sh -c "sleep 10 && /entrypoint.sh db createdb && /entrypoint.sh db migrate && /entrypoint.sh db init-admin && /entrypoint.sh run"
     depends_on:
       - plausible_db
